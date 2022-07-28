@@ -8,6 +8,10 @@ use App\RequestInventory;
 use App\EmployeeRequest;
 use App\RequestHistory;
 use Illuminate\Http\Request;
+use App\Notifications\ForApproval;
+use App\Notifications\ApproveRequest;
+use App\Notifications\DeclinedRequest;
+use App\Notifications\ForDeployment;
 use RealRashid\SweetAlert\Facades\Alert;
 class RequestController extends Controller
 {
@@ -67,7 +71,8 @@ class RequestController extends Controller
         $history->action = "Created";
         $history->user_id = auth()->user()->id;
         $history->save();
-
+        $requestor = auth()->user()->name;
+        $approver->notify(new ForApproval($requestInventory,$requestor));
         Alert::success('Successfully created.')->persistent('Dismiss');
         return back();
   
@@ -116,14 +121,15 @@ class RequestController extends Controller
         // dd($data_request);
         $data_request->status = "Declined";
         $data_request->save();
-
+        $requestor = User::findOrfail($data_request->user_id);
         $history = new RequestHistory;
         $history->employee_request_id = $request->cancel_id;
         $history->action = "Declined";
         $history->remarks = $request->remarks;
         $history->user_id = auth()->user()->id;
         $history->save();
-
+        $approver = auth()->user()->name;
+        $requestor->notify(new DeclinedRequest($data_request,$approver));
         Alert::success('Successfully Declined.')->persistent('Dismiss');
         return back();
         
@@ -137,13 +143,15 @@ class RequestController extends Controller
         $data_request->status = "Approved";
         $data_request->save();
 
+        $requestor = User::findOrfail($data_request->user_id);
         $history = new RequestHistory;
         $history->employee_request_id = $request->approved_id;
         $history->action = "Approved";
         $history->remarks = $request->remarks;
         $history->user_id = auth()->user()->id;
         $history->save();
-
+        $approver = auth()->user()->name;
+        $requestor->notify(new ApproveRequest($data_request,$approver));
         Alert::success('Successfully Approved.')->persistent('Dismiss');
         return back();
         

@@ -136,9 +136,11 @@
                 <a href="{{ url('/requests') }}" class="nav-link" onclick='show();'><i data-feather="database"></i><span>Requests</span></a>
               </li>
               @endif
+              @if(auth()->user()->role == "Admin")
               <li class="dropdown  @if($header == "Deliveries") active @endif">
                 <a href="{{ url('/deliveries') }}" class="nav-link" onclick='show();'><i data-feather="truck"></i><span>Deliveries</span></a>
               </li>
+              @endif
               @if(auth()->user()->role == "Approver")
               <li class="dropdown  @if($header == "For Approval") active @endif">
                 <a href="{{ url('/for-approval') }}" class="nav-link" onclick='show();'><i data-feather="check-square"></i><span>For Approval</span></a>
