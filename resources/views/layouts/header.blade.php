@@ -120,25 +120,34 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="{{asset('images/icon.png')}}" class="header-logo" /> <span
+            <a href="{{url('/')}}"> <img alt="image" src="{{asset('images/icon.png')}}" class="header-logo" /> <span
                 class="logo-name">IMS</span>
             </a>
           </div>
             <ul class="sidebar-menu">
               <li class="menu-header">Transactions</li>
+              @if(auth()->user()->role == "Admin")
               <li class="dropdown  @if($header == "Dashboard") active @endif">
                 <a href="{{ url('/') }}" class="nav-link" onclick='show();'><i data-feather="monitor"></i><span>Dashboard</span></a>
               </li>
+              @endif
+              @if(auth()->user()->role == "User")
               <li class="dropdown  @if($header == "Requests") active @endif">
                 <a href="{{ url('/requests') }}" class="nav-link" onclick='show();'><i data-feather="database"></i><span>Requests</span></a>
               </li>
+              @endif
               <li class="dropdown  @if($header == "Deliveries") active @endif">
                 <a href="{{ url('/deliveries') }}" class="nav-link" onclick='show();'><i data-feather="truck"></i><span>Deliveries</span></a>
               </li>
-              <li class="dropdown  @if($header == "Deployments") active @endif">
-                <a href="{{ url('/deployments') }}" class="nav-link" onclick='show();'><i data-feather="send"></i><span>Deployments</span></a>
+              @if(auth()->user()->role == "Approver")
+              <li class="dropdown  @if($header == "For Approval") active @endif">
+                <a href="{{ url('/for-approval') }}" class="nav-link" onclick='show();'><i data-feather="check-square"></i><span>For Approval</span></a>
               </li>
-              
+              @endif
+              @if(auth()->user()->role == "Admin")
+              <li class="dropdown  @if($header == "For Deployments") active @endif">
+                <a href="{{ url('/for-deployments') }}" class="nav-link" onclick='show();'><i data-feather="send"></i><span>For Deployment</span></a>
+              </li>
               <li class="menu-header">Settings</li>
                 <li class="dropdown @if($header == "Inventories") active @endif">
                     <a href="{{ url('/inventories') }}" class="nav-link" onclick='show();'><i data-feather="list"></i><span>Inventory</span></a>
@@ -146,6 +155,7 @@
                 <li class="dropdown @if($header == "Employees") active @endif">
                     <a href="{{ url('/employees') }}" class="nav-link" onclick='show();'><i data-feather="users"></i><span>Employees</span></a>
                 </li>
+                @endif
             </ul>
         </aside>
       </div>

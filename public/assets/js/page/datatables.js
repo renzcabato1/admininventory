@@ -42,10 +42,12 @@ $("#table-2").dataTable({
 });
 $('#employees-table').DataTable({
   "scrollX": true,
+  "ordering": false,
   stateSave: true
 });
 $('#transaction-table').DataTable({
   "scrollX": true,
+  "ordering": false,
   stateSave: true,
   order: [[0, "desc" ]],
   // "columnDefs": [

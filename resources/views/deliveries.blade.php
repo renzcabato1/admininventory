@@ -47,7 +47,7 @@
                                 </div>
                                 <hr>
                                 <h4><strong>Items <a href="#" onclick="add_item();" class="btn btn-info"><i class="fas fa-plus"></i></a></strong></h4>
-                                <div class='items'>
+                                <div class='items-d'>
                                     <div class="row" id='item_1'>
                                         <div class="col-md-4">
                                             <label >Inventory</label>
@@ -125,7 +125,7 @@
   <script>
     function add_item()
     {
-        var lastItemID = $('.items').children().last().attr('id');
+        var lastItemID = $('.items-d').children().last().attr('id');
         var last_id = lastItemID.split("_");
         finalLastId = parseInt(last_id[1]) + 1;
         // alert(finalLastId);
@@ -154,7 +154,7 @@
             item+= " </div>";
             item+= "</div>";
            
-            $(".items").append(item);
+            $(".items-d").append(item);
             $(".select2").select2();
     }
     function remove_item(id)

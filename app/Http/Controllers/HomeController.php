@@ -5,6 +5,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use App\Inventory;
 use App\RequestInventory;
+use App\EmployeeRequest;
 
 class HomeController extends Controller
 {
@@ -26,13 +27,17 @@ class HomeController extends Controller
     public function index()
     {
         //   Alert::success('Success Login', 'Welcome to Asset Inventory Management System '.auth()->user()->name)->persistent('Dismiss');
-        $request_inventory = RequestInventory::get();
+        $request_inventory = EmployeeRequest::get();
+        $for_deployment = RequestInventory::whereHas('employee_request',function ( $query) {
+            $query->where('status', 'Approved');
+        })->get();
         $inventories = Inventory::with('unit_of_measure_data')->orderBy('ending_balance','desc')->get();
         return view('home',
         array(
             'header' => 'Dashboard',
             'inventories' => $inventories,
-            'request_inventory' => $request_inventory
+            'request_inventory' => $request_inventory,
+            'for_deployment' => $for_deployment
         )
     );
     }

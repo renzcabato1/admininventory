@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col">
                             <h6 class="text-muted mb-0">New Requests</h6>
-                            <span class="font-weight-bold mb-0">{{count($request_inventory->where('status','pending')->where('date_created','date("y-m-d")'))}}</span>
+                            <span class="font-weight-bold mb-0">{{count($request_inventory->where('status','Pending')->where('date_created','date("y-m-d")'))}}</span>
                             </div>
                             <div class="col-auto">
                             <div class="card-circle l-bg-orange text-white">
@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col">
                                 <h6 class="text-muted mb-0">Pending Requests</h6>
-                                <span class="font-weight-bold mb-0">{{count($request_inventory->where('status','pending'))}}</span>
+                                <span class="font-weight-bold mb-0">{{count($request_inventory->where('status','Pending'))}}</span>
                                 </div>
                                 <div class="col-auto">
                                 <div class="card-circle l-bg-cyan text-white">
@@ -51,7 +51,7 @@
                     <div class="row">
                         <div class="col">
                         <h6 class="text-muted mb-0">Need for delivery</h6>
-                        <span class="font-weight-bold mb-0">{{count($inventories->where('ending_balance','<=',20))}}</span>
+                        <span class="font-weight-bold mb-0">{{count($inventories->where('ending_balance','<=',10))}}</span>
                         </div>
                         <div class="col-auto">
                         <div class="card-circle l-bg-green text-white">
@@ -70,8 +70,8 @@
                     <div class="card-body card-type-3">
                     <div class="row">
                         <div class="col">
-                        <h6 class="text-muted mb-0">Deployed Requests</h6>
-                        <span class="font-weight-bold mb-0">{{count($request_inventory->where('status','deployed'))}}</span>
+                        <h6 class="text-muted mb-0">For Deployment</h6>
+                        <span class="font-weight-bold mb-0">{{count($for_deployment->where('status','For Deployment'))}}</span>
                         </div>
                         <div class="col-auto">
                         <div class="card-circle l-bg-purple text-white">
