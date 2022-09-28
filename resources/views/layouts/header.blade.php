@@ -126,7 +126,7 @@
           </div>
             <ul class="sidebar-menu">
               <li class="menu-header">Transactions</li>
-              @if(auth()->user()->role == "Admin")
+              @if((auth()->user()->role == "Admin") || (auth()->user()->role == "Approver"))
               <li class="dropdown  @if($header == "Dashboard") active @endif">
                 <a href="{{ url('/') }}" class="nav-link" onclick='show();'><i data-feather="monitor"></i><span>Dashboard</span></a>
               </li>
@@ -136,7 +136,7 @@
                 <a href="{{ url('/requests') }}" class="nav-link" onclick='show();'><i data-feather="database"></i><span>Requests</span></a>
               </li>
               @endif
-              @if(auth()->user()->role == "Admin")
+              @if((auth()->user()->role == "Admin") || (auth()->user()->role == "Approver"))
               <li class="dropdown  @if($header == "Deliveries") active @endif">
                 <a href="{{ url('/deliveries') }}" class="nav-link" onclick='show();'><i data-feather="truck"></i><span>Deliveries</span></a>
               </li>
@@ -146,7 +146,7 @@
                 <a href="{{ url('/for-approval') }}" class="nav-link" onclick='show();'><i data-feather="check-square"></i><span>For Approval</span></a>
               </li>
               @endif
-              @if(auth()->user()->role == "Admin")
+              @if((auth()->user()->role == "Admin") || (auth()->user()->role == "Approver"))
               <li class="dropdown  @if($header == "For Deployments") active @endif">
                 <a href="{{ url('/for-deployments') }}" class="nav-link" onclick='show();'><i data-feather="send"></i><span>For Deployment</span></a>
               </li>
