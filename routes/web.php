@@ -17,8 +17,8 @@ Auth::routes();
 Route::group( ['middleware' => 'auth'], function()
 {
 
-    Route::group( ['middleware' => 'admin'], function()
-    {
+    // Route::group( ['middleware' => 'admin'], function()
+    // {
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/','HomeController@index')->name('home');
         
@@ -40,7 +40,7 @@ Route::group( ['middleware' => 'auth'], function()
             //for deployments
             Route::get('for-deployments','RequestController@for_deployments');
             Route::post('deployed-item','RequestController@deployed_item');
-            });
+            // });
 
 
 
