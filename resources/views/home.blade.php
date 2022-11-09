@@ -87,9 +87,9 @@
                 </div>
             </div>
             <div class='row'>
-                <div class="col-4 col-md-12 col-lg-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                 </div>
-                <div class="col-4 col-md-12 col-lg-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="card">
                         <div class="card-header">
                           <h4>High Stock </h4>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 col-md-12 col-lg-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="card">
                         <div class="card-header">
                           <h4>Low Stock </h4>
