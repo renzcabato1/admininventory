@@ -126,11 +126,11 @@
           </div>
             <ul class="sidebar-menu">
               <li class="menu-header">Transactions</li>
-              @if((auth()->user()->role == "Admin") || (auth()->user()->role == "Approver"))
+              {{-- @if((auth()->user()->role == "Admin") || (auth()->user()->role == "Approver") ||) --}}
               <li class="dropdown  @if($header == "Dashboard") active @endif">
                 <a href="{{ url('/') }}" class="nav-link" onclick='show();'><i data-feather="monitor"></i><span>Dashboard</span></a>
               </li>
-              @endif
+              {{-- @endif --}}
               @if((auth()->user()->role == "User") ||(auth()->user()->role == "Admin"))
               <li class="dropdown  @if($header == "Requests") active @endif">
                 <a href="{{ url('/requests') }}" class="nav-link" onclick='show();'><i data-feather="database"></i><span>Requests</span></a>
