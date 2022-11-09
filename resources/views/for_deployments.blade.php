@@ -7,8 +7,50 @@
     <div class="section-body">
        
         <div class="row">
-            
-            <div class="col-md-12 col-sm-12 col-lg-8">
+            <div class="col-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="card-body card-type-3">
+                            <div class="row">
+                                <div class="col">
+                                <h6 class="text-muted mb-0">For Deployments</h6>
+                                <span class="font-weight-bold mb-0">{{count($for_deployments->where('status','For Deployment'))}}</span>
+                                </div>
+                                <div class="col-auto">
+                                <div class="card-circle l-bg-cyan text-white">
+                                    <i class="fa fa-sticky-note"></i>
+                                </div>
+                                </div>
+                            </div>
+                            <p class="mt-3 mb-0 text-muted text-sm">
+                                <span class="text-nowrap">as of this {{date('F Y')}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="card-body card-type-3">
+                        <div class="row">
+                            <div class="col">
+                            <h6 class="text-muted mb-0">Deployed Requests</h6>
+                            <span class="font-weight-bold mb-0">{{count($for_deployments->where('status','Deployed'))}}</span>
+                            </div>
+                            <div class="col-auto">
+                            <div class="card-circle l-bg-purple text-white">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            </div>
+                        </div>
+                        <p class="mt-3 mb-0 text-muted text-sm">
+                            <span class="text-nowrap">as of this {{date('F Y')}}</span>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
                       <h4>For Deployments </h4>
@@ -51,49 +93,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-4">
-                <div class="col-xl-12 col-lg-12">
-                    <div class="card">
-                        <div class="card-body card-type-3">
-                            <div class="row">
-                                <div class="col">
-                                <h6 class="text-muted mb-0">For Deployments</h6>
-                                <span class="font-weight-bold mb-0">{{count($for_deployments->where('status','For Deployment'))}}</span>
-                                </div>
-                                <div class="col-auto">
-                                <div class="card-circle l-bg-cyan text-white">
-                                    <i class="fa fa-sticky-note"></i>
-                                </div>
-                                </div>
-                            </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-nowrap">as of this {{date('F Y')}}</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-12 col-lg-12">
-                    <div class="card">
-                        <div class="card-body card-type-3">
-                        <div class="row">
-                            <div class="col">
-                            <h6 class="text-muted mb-0">Deployed Requests</h6>
-                            <span class="font-weight-bold mb-0">{{count($for_deployments->where('status','Deployed'))}}</span>
-                            </div>
-                            <div class="col-auto">
-                            <div class="card-circle l-bg-purple text-white">
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            </div>
-                        </div>
-                        <p class="mt-3 mb-0 text-muted text-sm">
-                            <span class="text-nowrap">as of this {{date('F Y')}}</span>
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-           
           </div>
         </section>
       </div>
