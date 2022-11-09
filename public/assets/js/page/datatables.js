@@ -45,6 +45,11 @@ $('#employees-table').DataTable({
   "ordering": false,
   stateSave: true
 });
+$('.employees-table').DataTable({
+  "scrollX": true,
+  "ordering": false,
+  stateSave: true
+});
 $('#transaction-table').DataTable({
   "scrollX": true,
   "ordering": false,

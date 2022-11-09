@@ -48,6 +48,10 @@ $('#employees-table').DataTable({
   "scrollX": true,
   stateSave: true
 });
+$('.employees-table').DataTable({
+  "scrollX": true,
+  stateSave: true
+});
 $('#transaction-table').DataTable({
   "scrollX": true,
   stateSave: true,

@@ -95,7 +95,7 @@
                           <h4>High Stock </h4>
                         </div>
                         <div class="card-body">
-                            <table class="table table-hover" id="employees-table" style="width:100%;">
+                            <table class="table table-hover employees-table"  style="width:100%;">
                               <thead class='border'>
                                 <tr>
                                   <th>Item Description</th>
@@ -122,7 +122,7 @@
                           <h4>Low Stock </h4>
                         </div>
                         <div class="card-body">
-                            <table class="table table-hover" id="employees-table" style="width:100%;">
+                            <table class="table table-hover employees-table"  style="width:100%;">
                               <thead class='border'>
                                 <tr>
                                   <th>Item Description</th>
