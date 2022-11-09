@@ -19,7 +19,7 @@ class RequestController extends Controller
     public function requests (Request $request)
     {
         $approver = User::where('role','Approver')->first();
-        $inventories = Inventory::with('unit_of_measure_data')->get();
+        $inventories = Inventory::with('unit_of_measure_data')->orderBy('item_description','desc')->get();
         $request_inventory = EmployeeRequest::with('inventory','approver','histories.user_info','user_info','employee_info')->where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
         $deployed_requests = EmployeeRequest::with('inventory')->where('status','Approved')
         ->where('user_id',auth()->user()->id)
@@ -43,6 +43,7 @@ class RequestController extends Controller
         $requestInventory->approver_id = $approver->id;
         $requestInventory->remarks = $request->remarks;
         $requestInventory->status = "Pending";
+        $requestInventory->customer_name = $request->customer_name;
         if($request->hasFile('attachment'))
         {
             $attachment = $request->file('attachment');
@@ -61,6 +62,7 @@ class RequestController extends Controller
             $reqInt->inventory_id = $inventory;
             $reqInt->request_qty = $request->request_quantity[$key];
             $reqInt->request_id = $requestInventory->id;
+            $reqInt->price = $request->price[$key];
             $reqInt->status = "For Deployment";
             $reqInt->save();
             

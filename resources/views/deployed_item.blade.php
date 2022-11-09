@@ -21,7 +21,13 @@
                     <div class="row mt-12">
                         <div class="col-md-12">
                             <label >Price Per Qty</label>
-                            <input   id='remarks' type='number'  name='price' class="form-control" min='0.00' step=".01"  placeholder="Price Per Qty">
+                            <input id='price' type='number'  name='price' class="form-control" min='0.00' step=".01"  placeholder="Price Per Qty">
+                        </div>
+                    </div>
+                    <div class="row mt-12">
+                        <div class="col-md-12">
+                            <label >Customer Name</label>
+                            <input  name='customer_name' class="form-control" id='customer_name' placeholder="Customer Name" readonly required>
                         </div>
                     </div>
                     <div class="row mt-12">

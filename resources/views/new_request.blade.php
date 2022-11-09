@@ -27,14 +27,18 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-4 ">
+                            <div class="col-md-2 ">
                                 <label >Available Qty</label>
                                 
                                 <input type="number" name='available_quantity[]' id='available_quantity_1' class="form-control " value="{{ old('available_quantity') }}"  readonly>
                             </div>
-                            <div class="col-md-3 ">
+                            <div class="col-md-2 ">
                                 <label >Request Qty</label>
                                 <input type="number" name='request_quantity[]' oninvalid="this.setCustomValidity('Available Qty : '+this.max)"  oninput="this.setCustomValidity('')"  id='request_quantity_1' class="form-control " value="{{ old('request_quantity') }}" placeholder="" min='1' step="1" required>
+                            </div>
+                            <div class="col-md-3 ">
+                                <label >Price</label>
+                                <input type="number" name='price[]' class="form-control " value="{{ old('price') }}" placeholder="" min='.01' step=".01" >
                             </div>
                             <div class="col-md-1  ">
                                 <label >&nbsp;</label>
@@ -45,8 +49,11 @@
                      <hr>
                     <div class="row mt-4">
                         <div class="col-md-8">
+                            <label >Customer Name</label>
+                            <input  name='customer_name' class="form-control" value="{{ old('customer_name') }}" placeholder="Customer Name" required>
                             <label >Remarks</label>
-                            <textarea   style="height: 85px;"  id='remarks' name='remarks'  name='remarks' class="form-control"  placeholder="Remarks" required>{{ old('remarks') }}</textarea>
+                            <textarea   style="height: 85px;"  id='remarks'   name='remarks' class="form-control"  placeholder="Remarks" required>{{ old('remarks') }}</textarea>
+                            
                         </div>
                         <div class="col-md-4">
                             <label >Attachment <i>(optional)</i></label>
@@ -81,13 +88,17 @@ function add_inventory()
             item+= "@endforeach";
             item+= "</select>";
             item+= "</div>";
-            item+= "<div class='col-md-4 '>";
+            item+= "<div class='col-md-2 '>";
             item+= "<label >Available Qty</label>";
             item+= "<input type='number' name='available_quantity[]' id='available_quantity_"+finalLastId+"' class='form-control ' value='{{ old('available_quantity') }}'  readonly>";
             item+= "</div>";
-            item+= "<div class='col-md-3 '>";
+            item+= "<div class='col-md-2 '>";
             item+= "<label >Request Qty</label>";
             item+= "<input type='number' name='request_quantity[]' oninvalid='this.setCustomValidity(Available Qty : '+this.max)'  oninput='this.setCustomValidity()'  id='request_quantity_"+finalLastId+"' class='form-control ' value='{{ old('request_quantity') }}'' placeholder=''' min='1' step='1' required>";
+            item+= "</div>";
+            item+= "<div class='col-md-3 '>";
+            item+= "<label >Price</label>";
+            item+= "<input type='number' name='price[]' class='form-control ' placeholder=''' min='.01' step=''.01' >";
             item+= "</div>";
             item+= "<div class='col-md-1 '>";
             item+= "<label >&nbsp;</label>";

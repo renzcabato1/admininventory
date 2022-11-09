@@ -81,7 +81,7 @@
                                    {{$for_deployment->inventory->item_description}}
                                 </td>
                                 <td>
-                                    {{$for_deployment->request_qty}} - <span class="badge @if($for_deployment->inventory->ending_balance >= $for_deployment->request_qty) badge-success @else badge-danger  @endif">{{$for_deployment->inventory->ending_balance}}</span>
+                                    <span class="badge @if($for_deployment->inventory->ending_balance >= $for_deployment->request_qty) badge-success @else badge-danger  @endif">{{$for_deployment->inventory->ending_balance}}</span>  -  {{$for_deployment->request_qty}} 
                                 </td>
                                 <td><small>{!! nl2br(e($for_deployment->employee_request->remarks)) !!}</small></td>
                                
@@ -100,10 +100,14 @@
 @include('deployed_item')
 <script type="text/javascript">
     var inventories = {!! json_encode($inventories->toArray()) !!};
-    
+    var for_deployments = {!! json_encode(($for_deployments)->toArray()) !!};
+
     function deploy_item(id)
     {
+        var data = for_deployments.find(item => item.id === id);
         document.getElementById("dep_id").value = id;
+        document.getElementById("price").value = data.price;
+        document.getElementById("customer_name").value = data.employee_request.customer_name;
     }
     function pad(pad, str, padLeft) {
     if (typeof str === 'undefined') 

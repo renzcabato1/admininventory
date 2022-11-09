@@ -133,13 +133,24 @@
         $('.data_d').empty();
         $('.histories').empty();
         for (var i = 0; i < request_inventories.length; i++) {
-
+            if(request_inventories[i].price == null)
+            {
+                var price = 0.00;
+                    price = parseFloat(price).toFixed(2);
+            }
+            else
+            {
+                var price = parseFloat(request_inventories[i].price).toFixed(2);
+            }
             var dataAssets = "<div class='row  border'>";
-                dataAssets += "<div class='col-sm-6 border'>";    
+                dataAssets += "<div class='col-sm-4 border'>";    
                 dataAssets += request_inventories[i].inventory.item_description;      
                 dataAssets += "</div>";    
-                dataAssets += "<div class='col-sm-6 border'>";    
+                dataAssets += "<div class='col-sm-4 border'>";    
                 dataAssets += request_inventories[i].request_qty;    
+                dataAssets += "</div>";    
+                dataAssets += "<div class='col-sm-4 border'>";    
+                dataAssets += price.toLocaleString();    
                 dataAssets += "</div>";    
                 dataAssets += "</div>";    
                 $('.data_d').append(dataAssets);

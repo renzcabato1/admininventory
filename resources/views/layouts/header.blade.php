@@ -134,7 +134,7 @@
               @if((auth()->user()->role == "User") ||(auth()->user()->role == "Admin"))
               <li class="dropdown  @if($header == "Requests") active @endif">
                 <a href="{{ url('/requests') }}" class="nav-link" onclick='show();'><i data-feather="database"></i><span>Requests</span></a>
-              </li>
+              </li> 
               @endif
               @if((auth()->user()->role == "Admin") || (auth()->user()->role == "Approver"))
               <li class="dropdown  @if($header == "Deliveries") active @endif">

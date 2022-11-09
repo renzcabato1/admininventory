@@ -35,11 +35,14 @@
                                 </div>
                             </div>
                                 <div class='row border'>
-                                    <div class='col-sm-6 border'>
+                                    <div class='col-sm-4 border'>
                                     Inventory 
                                     </div>
-                                    <div class='col-sm-6 border'>
+                                    <div class='col-sm-4 border'>
                                     Request Qty 
+                                    </div>
+                                    <div class='col-sm-4 border'>
+                                    Price 
                                     </div>
                                 </div>
                                 <div class='data_d'>

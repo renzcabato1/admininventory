@@ -20,6 +20,7 @@
                             <tr>
                               <th>Request Number</th>
                               <th>Requestor</th>
+                              <th>Customer Name</th>
                               <th>Item Description - Request Qty</th>
                               <th>Remarks</th>
                               <th>Action</th>
@@ -30,6 +31,7 @@
                             <tr>
                                 <td>TR-{{str_pad($req->id, 4, '0', STR_PAD_LEFT)}}</td>
                                 <td>{{$req->user_info->name}}</td>
+                                <td>{{$req->customer_name}}</td>
                                 <td>
                                     @foreach($req->inventory as $info)
                                     {{$info->inventory->item_description}} - {{$info->request_qty}} <br>
@@ -147,13 +149,24 @@
         $('.data_d').empty();
         $('.histories').empty();
         for (var i = 0; i < request_inventories.length; i++) {
-
+            if(request_inventories[i].price == null)
+            {
+                var price = 0.00;
+                    price = parseFloat(price).toFixed(2);
+            }
+            else
+            {
+                var price = parseFloat(request_inventories[i].price).toFixed(2);
+            }
             var dataAssets = "<div class='row  border'>";
-                dataAssets += "<div class='col-sm-6 border'>";    
+                dataAssets += "<div class='col-sm-4 border'>";    
                 dataAssets += request_inventories[i].inventory.item_description;      
                 dataAssets += "</div>";    
-                dataAssets += "<div class='col-sm-6 border'>";    
+                dataAssets += "<div class='col-sm-4 border'>";    
                 dataAssets += request_inventories[i].request_qty;    
+                dataAssets += "</div>";    
+                dataAssets += "<div class='col-sm-4 border'>";    
+                dataAssets += price.toLocaleString();    
                 dataAssets += "</div>";    
                 dataAssets += "</div>";    
                 $('.data_d').append(dataAssets);
