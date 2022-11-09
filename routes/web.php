@@ -56,8 +56,6 @@ Route::group( ['middleware' => 'auth'], function()
     Route::post('approved-request','RequestController@approvedRequest');
     Route::get('for-approval','RequestController@for_approval');
 
-
-
     
 
 });

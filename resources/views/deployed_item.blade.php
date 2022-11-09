@@ -20,6 +20,12 @@
                     </div>
                     <div class="row mt-12">
                         <div class="col-md-12">
+                            <label >Price Per Qty</label>
+                            <input   id='remarks' type='number'  name='price' class="form-control" min='0.00' step=".01"  placeholder="Price Per Qty">
+                        </div>
+                    </div>
+                    <div class="row mt-12">
+                        <div class="col-md-12">
                             <label >Attachment</label>
                             <input id='attachment' name='attachment'  type='file' class="form-control"  placeholder="Attachment" required>
                         </div>

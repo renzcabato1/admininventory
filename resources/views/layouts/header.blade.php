@@ -131,7 +131,7 @@
                 <a href="{{ url('/') }}" class="nav-link" onclick='show();'><i data-feather="monitor"></i><span>Dashboard</span></a>
               </li>
               @endif
-              @if(auth()->user()->role == "User")
+              @if((auth()->user()->role == "User") ||(auth()->user()->role == "Admin"))
               <li class="dropdown  @if($header == "Requests") active @endif">
                 <a href="{{ url('/requests') }}" class="nav-link" onclick='show();'><i data-feather="database"></i><span>Requests</span></a>
               </li>

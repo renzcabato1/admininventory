@@ -179,6 +179,7 @@ class RequestController extends Controller
 
         $for_deployments = RequestInventory::findOrfail($request->dep_id);
         $for_deployments->status = "Deployed";
+        $for_deployments->price = $request->price;
 
        
         $inventory = Inventory::where('id',$for_deployments->inventory_id)->first();

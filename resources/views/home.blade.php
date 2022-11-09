@@ -87,9 +87,36 @@
                 </div>
             </div>
             <div class='row'>
-                <div class="col-8 col-md-8 col-lg-8">
+                <div class="col-4 col-md-12 col-lg-4">
                 </div>
-                <div class="col-4 col-md-4 col-lg-4">
+                <div class="col-4 col-md-12 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                          <h4>High Stock </h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover" id="employees-table" style="width:100%;">
+                              <thead class='border'>
+                                <tr>
+                                  <th>Item Description</th>
+                                  <th>Unit of Measure</th>
+                                  <th>Available Qty.</th>
+                                </tr>
+                              </thead>
+                              <tbody class='border'>
+                                @foreach($inventories->where('ending_balance','>',20) as $inventory)
+                                 <tr>
+                                    <td>{{$inventory->item_description}}</td>
+                                    <td>{{$inventory->unit_of_measure_data->name_description}}</td>
+                                    <td>{{$inventory->ending_balance}}</td>
+                                 </tr>
+                                 @endforeach
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-12 col-lg-4">
                     <div class="card">
                         <div class="card-header">
                           <h4>Low Stock </h4>
@@ -104,7 +131,7 @@
                                 </tr>
                               </thead>
                               <tbody class='border'>
-                                @foreach($inventories->where('ending_balance','<=',20) as $inventory)
+                                @foreach($inventories->where('ending_balance','<=',10) as $inventory)
                                  <tr>
                                     <td>{{$inventory->item_description}}</td>
                                     <td>{{$inventory->unit_of_measure_data->name_description}}</td>

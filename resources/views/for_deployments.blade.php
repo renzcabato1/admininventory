@@ -8,7 +8,7 @@
        
         <div class="row">
             
-            <div class="col-8 col-md-8 col-lg-8">
+            <div class="col-md-12 col-sm-12 col-lg-8">
                 <div class="card">
                     <div class="card-header">
                       <h4>For Deployments </h4>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-lg-4">
+            <div class="col-12 col-md-12 col-lg-4">
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-body card-type-3">
