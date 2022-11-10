@@ -98,7 +98,7 @@ function add_inventory()
             item+= "</div>";
             item+= "<div class='col-md-3 '>";
             item+= "<label >Price</label>";
-            item+= "<input type='number' name='price[]' class='form-control ' placeholder='' min='.01' step='.01' >";
+            item+= "<input type='number' name='price[]' class='form-control ' placeholder=''  >";
             item+= "</div>";
             item+= "<div class='col-md-1 '>";
             item+= "<label >&nbsp;</label>";
