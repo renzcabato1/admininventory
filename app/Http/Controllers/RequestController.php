@@ -19,7 +19,7 @@ class RequestController extends Controller
     public function requests (Request $request)
     {
         $approver = User::where('role','Approver')->first();
-        $inventories = Inventory::with('unit_of_measure_data')->orderBy('item_description','desc')->get();
+        $inventories = Inventory::with('unit_of_measure_data')->orderBy('item_description','asc')->get();
         $request_inventory = EmployeeRequest::with('inventory','approver','histories.user_info','user_info','employee_info')->where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
         $deployed_requests = EmployeeRequest::with('inventory')->where('status','Approved')
         ->where('user_id',auth()->user()->id)
