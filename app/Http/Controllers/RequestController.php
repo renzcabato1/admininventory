@@ -166,9 +166,9 @@ class RequestController extends Controller
 
         $for_deployments = RequestInventory::whereHas('employee_request',function ( $query) {
             $query->where('status', 'Approved');
-        })->with('employee_request.user_info','inventory')->get();
-
-
+        })->with('employee_request.user_info','inventory')->orderBy('id','desc')->get();
+        
+        // dd($for_deployments);
         return view('for_deployments',array(
             'header' => "For Deployments",
             'inventories' => $inventories,

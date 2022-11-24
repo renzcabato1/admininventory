@@ -23,6 +23,7 @@
                               <th>Customer Name</th>
                               <th>Item Description - Request Qty</th>
                               <th>Remarks</th>
+                              <th>Attachment</th>
                               <th>Action</th>
                             </tr>
                           </thead>
@@ -38,11 +39,13 @@
                                     @endforeach
                                 </td>
                                 <td><small>{!! nl2br(e($req->remarks)) !!}</small></td>
+                                <td><a href='{{url($req->attachment)}}' target='_blank' >Attachment</a></td>
                                 <td>
                                     <a title='View History' href="#" class="btn btn-icon btn-info" data-toggle="modal" data-target="#viewHistory" onclick="view_request({{$req->id}})"><i class="fas fa-info-circle"></i></a>
                                     <a title='Approved Request' href="#" class="btn btn-icon btn-success" data-toggle="modal" data-target="#approveRequest" onclick="approvedRequest({{$req->id}})"><i class="fas fa-check"></i></a>
                                     <a title='Cancel' href="#" class="btn btn-icon btn-danger" data-toggle="modal" data-target="#declineRequest" onclick="declined_request({{$req->id}})"><i class="fas fa-times"></i></a>
                                  </td>
+                                 
                             </tr>
                            
                            @endforeach
