@@ -29,25 +29,23 @@
                           </thead>
                           <tbody>
                            @foreach($request_inventory->where('status','Pending') as $req)
-                            <tr>
-                                <td>TR-{{str_pad($req->id, 4, '0', STR_PAD_LEFT)}}</td>
-                                <td>{{$req->user_info->name}}</td>
-                                <td>{{$req->customer_name}}</td>
-                                <td>
-                                    @foreach($req->inventory as $info)
-                                    {{$info->inventory->item_description}} - {{$info->request_qty}} <br>
-                                    @endforeach
-                                </td>
-                                <td><small>{!! nl2br(e($req->remarks)) !!}</small></td>
-                                <td><a href='{{url($req->attachment)}}' target='_blank' >Attachment</a></td>
-                                <td>
-                                    <a title='View History' href="#" class="btn btn-icon btn-info" data-toggle="modal" data-target="#viewHistory" onclick="view_request({{$req->id}})"><i class="fas fa-info-circle"></i></a>
-                                    <a title='Approved Request' href="#" class="btn btn-icon btn-success" data-toggle="modal" data-target="#approveRequest" onclick="approvedRequest({{$req->id}})"><i class="fas fa-check"></i></a>
-                                    <a title='Cancel' href="#" class="btn btn-icon btn-danger" data-toggle="modal" data-target="#declineRequest" onclick="declined_request({{$req->id}})"><i class="fas fa-times"></i></a>
-                                 </td>
-                                 
-                            </tr>
-                           
+                                <tr>
+                                    <td>TR-{{str_pad($req->id, 4, '0', STR_PAD_LEFT)}}</td>
+                                    <td>{{$req->user_info->name}}</td>
+                                    <td>{{$req->customer_name}}</td>
+                                    <td>
+                                        @foreach($req->inventory as $info)
+                                        {{$info->inventory->item_description}} - {{$info->request_qty}} <br>
+                                        @endforeach
+                                    </td>
+                                    <td><small>{!! nl2br(e($req->remarks)) !!}</small></td>
+                                    <td><a href='{{asset($req->attachment)}}' target='_blank' >Attachment</a></td>
+                                    <td>
+                                        <a title='View History' href="#" class="btn btn-icon btn-info" data-toggle="modal" data-target="#viewHistory" onclick="view_request({{$req->id}})"><i class="fas fa-info-circle"></i></a>
+                                        <a title='Approved Request' href="#" class="btn btn-icon btn-success" data-toggle="modal" data-target="#approveRequest" onclick="approvedRequest({{$req->id}})"><i class="fas fa-check"></i></a>
+                                        <a title='Cancel' href="#" class="btn btn-icon btn-danger" data-toggle="modal" data-target="#declineRequest" onclick="declined_request({{$req->id}})"><i class="fas fa-times"></i></a>
+                                    </td>
+                                </tr>
                            @endforeach
                           </tbody>
                         </table>
