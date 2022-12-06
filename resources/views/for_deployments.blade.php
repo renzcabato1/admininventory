@@ -85,8 +85,7 @@
                                     <span class="badge @if($for_deployment->inventory->ending_balance >= $for_deployment->request_qty) badge-success @else badge-danger  @endif">{{$for_deployment->inventory->ending_balance}}</span>  -  {{$for_deployment->request_qty}} 
                                 </td>
                                 <td><small>{!! nl2br(e($for_deployment->employee_request->remarks)) !!}</small></td>
-                                <td><a href='{{url($for_deployment->employee_request->attachment)}}' target='_blank' >Attachment</a></td>
-                               
+                                <td><a href='{{asset($for_deployment->employee_request->attachment)}}' target='_blank' >Attachment</a></td>
                             </tr>
                            @endforeach
                           </tbody>
